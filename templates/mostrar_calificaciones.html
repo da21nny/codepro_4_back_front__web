@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/mostrar_calificaciones" method="POST">
+        <input type="text" name="cedula" placeholder="Ingrese cédula" required>
+        <input type="submit" value="Buscar calificaciones">
+    </form>
+    
+    <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Materia</th>
+            <th>Calificación</th>
+        </thead>
+        
+        <tbody>
+            {% if alumno %}
+            <tr>
+                <td>{{ alumno.nombre }}</td>
+                <td>{{ alumno.apellido }}</td>
+
+                {% for materia in calificaciones %}
+
+                <td>{{ materia.name }}</td>
+                <td>{{ materia.calificacion }}</td>
+
+                {% endfor %}
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+</body> 
+</html>
